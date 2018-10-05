@@ -12,13 +12,17 @@ hbs.registerHelper("screamIt", txt => {
 });
 app.set("view engine", "hbs");
 
-app.use((req, res, next) => {
-  res.render("maintenance.hbs", {
-    title: "Maintenance"
+// app.use((req, res, next) => {
+//   res.render("maintenance.hbs", {
+//     title: "Maintenance"
+//   });
+//   next();
+// });
+app.get("/project", (req, res) => {
+  res.render("project.hbs", {
+    title: "Projects"
   });
-  next();
 });
-
 app.get("/", (req, res) => {
   res.render("home", {
     title: "Home",
